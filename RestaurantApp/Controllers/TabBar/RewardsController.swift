@@ -160,8 +160,8 @@ class RewardsController: UIViewController, UICollectionViewDelegate, UICollectio
         showLoading()
         updateViewConstraints()
         backend1()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            self.backend2()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.findLocationCount()
         }
         
         navigationController?.navigationBar.barStyle = .black
@@ -236,6 +236,7 @@ class RewardsController: UIViewController, UICollectionViewDelegate, UICollectio
                 let sortedList = self.items.sorted(by: { $1.timestamp! < $0.timestamp! } )
                 self.items.removeAll()
                 self.items = sortedList
+                self.backend2()
             }
         })
     }
@@ -361,6 +362,8 @@ class RewardsController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     private func setupSingle() {
+        backend1()
+        
         view.addSubview(bigViewSingle)
         bigViewSingle.topAnchor.constraint(equalTo: topBanner.bottomAnchor, constant: 30).isActive = true
         bigViewSingle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
