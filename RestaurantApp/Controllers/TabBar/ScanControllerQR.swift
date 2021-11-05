@@ -261,48 +261,7 @@ class ScanController: UIViewController, CLLocationManagerDelegate, AVCaptureMeta
     }
     
     private func storage(withName name: String) {
-        if name == "-MaFTALGYLV0JFQYyr3P" {
-            print("elmhurst location")
-            Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("locations").child(name).child("lat").observeSingleEvent(of: DataEventType.value) { latSnap in
-                Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("locations").child(name).child("long").observeSingleEvent(of: DataEventType.value) { longSnap in
-                    if let lat = latSnap.value as? Double, let long = longSnap.value as? Double {
-                        let destination = CLLocation(latitude: lat, longitude: long)
-                        let current = CLLocation(latitude: self.locationManager.location!.coordinate.latitude, longitude: self.locationManager.location!.coordinate.longitude)
-                        let distance = current.distance(from: destination) // meters
-                        let maxRadius = 200 // meters
-                        if Int(distance) > maxRadius {
-                            self.addErrorNotification()
-                            self.simpleAlert(title: "Error", message: "You are too far away from the destination you claim to be at.")
-                        } else {
-                            // check if scanned again
-                            scannedID = name
-                            self.showPopUp()
-                        }
-                    }
-                }
-            }
-        } else if name == "-MaFWlwfguFE-lnLG4nZ" {
-            print("northlake location")
-            Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("locations").child(name).child("lat").observeSingleEvent(of: DataEventType.value) { latSnap in
-                Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("locations").child(name).child("long").observeSingleEvent(of: DataEventType.value) { longSnap in
-                    if let lat = latSnap.value as? Double, let long = longSnap.value as? Double {
-                        let destination = CLLocation(latitude: lat, longitude: long)
-                        let current = CLLocation(latitude: self.locationManager.location!.coordinate.latitude, longitude: self.locationManager.location!.coordinate.longitude)
-                        let distance = current.distance(from: destination) // meters
-                        let maxRadius = 200 // meters
-                        if Int(distance) > maxRadius {
-                            self.addErrorNotification()
-                            self.simpleAlert(title: "Error", message: "You are too far away from the destination you claim to be at.")
-                        } else {
-                            // check if scanned again
-                            scannedID = name
-                            self.showPopUp()
-                        }
-                    }
-                }
-            }
-        } else if name == "chickiesLocation" {
-            print("northlake location")
+        if name == "-MnTe7uMP5msL7izwZZY" {
             Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("locations").child(name).child("lat").observeSingleEvent(of: DataEventType.value) { latSnap in
                 Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("locations").child(name).child("long").observeSingleEvent(of: DataEventType.value) { longSnap in
                     if let lat = latSnap.value as? Double, let long = longSnap.value as? Double {
