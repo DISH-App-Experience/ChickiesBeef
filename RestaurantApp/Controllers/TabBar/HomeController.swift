@@ -474,8 +474,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         case "Our Website":
-            // ADD RESTAURANT WEBSITE TS AND CS BELOW TO ADD ACCESS
-            let websiteURL = ""
             if let url = URL(string: websiteURL), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             }
@@ -750,12 +748,19 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @objc func moveToOrder() {
-//        let controller = SelectLocationOrder()
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let alert = UIAlertController(title: "How would you like to proceed?", message: "", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Checkout w/ Rewards", style: UIAlertAction.Style.default, handler: { action in
+            let controller = SelectLocationOrder()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Online Order", style: UIAlertAction.Style.default, handler: { action in
+            if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/Home?openform") {
+                UIApplication.shared.open(url)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         add3DMotion(withFeedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle.medium)
-        if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/Home?openform") {
-            UIApplication.shared.open(url)
-        }
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
