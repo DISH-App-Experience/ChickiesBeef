@@ -113,4 +113,8 @@ class MenuItemCVCell: UICollectionViewCell {
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
     }
     
+    func configure(url: String) {
+        itemImageView.load(urlString: url)
+    }
+    
 }

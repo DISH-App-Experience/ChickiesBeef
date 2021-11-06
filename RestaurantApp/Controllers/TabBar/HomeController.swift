@@ -748,13 +748,13 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @objc func moveToOrder() {
-        let alert = UIAlertController(title: "How would you like to proceed?", message: "", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "How would you like to proceed?", message: "", preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Checkout w/ Rewards", style: UIAlertAction.Style.default, handler: { action in
             let controller = SelectLocationOrder()
             self.navigationController?.pushViewController(controller, animated: true)
         }))
         alert.addAction(UIAlertAction(title: "Online Order", style: UIAlertAction.Style.default, handler: { action in
-            if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/Home?openform") {
+            if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/mHome") {
                 UIApplication.shared.open(url)
             }
         }))
