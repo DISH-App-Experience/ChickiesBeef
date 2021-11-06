@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 enum MenuLayout {
     case table, grid
@@ -260,6 +261,7 @@ class MenuController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCVCell.identifier, for: indexPath) as! MenuItemCVCell
             if isOutsideAll {
+                
                 if let imageUrl = otherCatItems[indexPath.row].imageUrl {
                     cell.itemImageView.loadImage(from: URL(string: imageUrl)!)
                 }
@@ -279,7 +281,7 @@ class MenuController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
                 return cell
             } else {
                 
-                if let imageUrl = items[indexPath.row].imageUrl {
+                if let imageUrl = otherCatItems[indexPath.row].imageUrl {
                     cell.itemImageView.loadImage(from: URL(string: imageUrl)!)
                 }
                 
@@ -380,7 +382,7 @@ class MenuController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemCell.identifier, for: indexPath) as! MenuItemCell
             
-            if let imageUrl = items[indexPath.row].imageUrl {
+            if let imageUrl = otherCatItems[indexPath.row].imageUrl {
                 cell.itemImageView.loadImage(from: URL(string: imageUrl)!)
             }
             
