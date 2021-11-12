@@ -19,8 +19,8 @@ class MenuItemCell: UITableViewCell {
         return view
     }()
     
-    let itemImageView : MainImageView = {
-        let imageView = MainImageView()
+    let itemImageView : CustomImageView = {
+        let imageView = CustomImageView()
         imageView.layer.cornerRadius = 37.5
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
@@ -115,10 +115,6 @@ class MenuItemCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(url: String) {
-        itemImageView.load(urlString: url)
     }
 
 }
