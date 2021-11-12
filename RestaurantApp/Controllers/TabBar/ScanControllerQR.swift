@@ -250,8 +250,8 @@ class ScanController: UIViewController, CLLocationManagerDelegate, AVCaptureMeta
     
     func completion() {
         let alert = UIAlertController(title: "Success!", message: "1 Visit Added", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Back to Rewards Page", style: UIAlertAction.Style.default, handler: { _ in
-            self.navigationController?.popViewController(animated: true)
+        alert.addAction(UIAlertAction(title: "Return Home", style: UIAlertAction.Style.default, handler: { _ in
+            self.moveToTabbar()
         }))
         self.present(alert, animated: true, completion: nil)
     }

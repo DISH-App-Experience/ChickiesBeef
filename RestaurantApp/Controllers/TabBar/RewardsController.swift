@@ -22,6 +22,12 @@ class RewardsController: UIViewController, UICollectionViewDelegate, UICollectio
     
     var collectionView : UICollectionView?
     
+    var shouldBackend2 = false {
+        didSet {
+            self.backend2()
+        }
+    }
+    
     var total = 0 {
         didSet {
             bigViewSingle.addSubview(rewardProgressLabel)
@@ -229,6 +235,9 @@ class RewardsController: UIViewController, UICollectionViewDelegate, UICollectio
     private func backend1() {
         Database.database().reference().child("Apps").child(Restaurant.shared.restaurantId).child("rewards").child("rewardId").observe(DataEventType.value) { snapshot in
             print("started func")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.shouldBackend2 = true
+            }
             if let value = snapshot.value as? String {
                 self.backend12()
             } else {
@@ -257,7 +266,6 @@ class RewardsController: UIViewController, UICollectionViewDelegate, UICollectio
                 self.items.removeAll()
                 self.items = sortedList
             }
-            self.backend2()
         })
     }
     

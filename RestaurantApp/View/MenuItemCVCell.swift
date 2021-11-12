@@ -19,8 +19,8 @@ class MenuItemCVCell: UICollectionViewCell {
         return view
     }()
     
-    let itemImageView : MainImageView = {
-        let imageView = MainImageView()
+    let itemImageView : CustomImageView = {
+        let imageView = CustomImageView()
         imageView.layer.cornerRadius = 37.5
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
@@ -111,10 +111,6 @@ class MenuItemCVCell: UICollectionViewCell {
         let size = CGSize(width: self.bounds.size.width - 48, height: CGFloat())
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
-    }
-    
-    func configure(url: String) {
-        itemImageView.load(urlString: url)
     }
     
 }
