@@ -36,8 +36,6 @@ target 'RestaurantApp' do
   pod 'Alamofire'
   
   pod 'Stripe'
-  
-  pod 'Kingfisher';
 
   target 'RestaurantAppTests' do
     inherit! :search_paths
