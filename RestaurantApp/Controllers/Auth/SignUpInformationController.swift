@@ -145,11 +145,18 @@ class SignUpInformationController: UIViewController, UITextFieldDelegate, UIPick
         genderPicker.delegate = self
         genderPicker.dataSource = self
         
-        birthdayPicker.datePickerMode = UIDatePicker.Mode.date
-        birthdayPicker.frame.size = CGSize(width: 0, height: 255)
-        birthdayPicker.addTarget(self, action: #selector(birthdayPickerChanged), for: UIControl.Event.valueChanged)
-        birthdayTextField.inputView = birthdayPicker
-        
+        birthdayTextField.setInputViewDatePicker(target: self, selector: #selector(donePressed))
+    }
+    
+    @objc func donePressed() {
+        if let datePicker = self.birthdayTextField.inputView as? UIDatePicker {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            birthdayTextField.text = dateFormatter.string(from: datePicker.date)
+            birthdayInt = Int(datePicker.date.timeIntervalSince1970)
+            birthdayDate = datePicker.date
+        }
+        birthdayTextField.resignFirstResponder()
     }
     
     @objc func birthdayPickerChanged(datePicker: UIDatePicker) {
