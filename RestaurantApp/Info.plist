@@ -39,6 +39,8 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Please allow the calendar permission to add events to Apple Calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow camera usage to access rewards cards scanning!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
