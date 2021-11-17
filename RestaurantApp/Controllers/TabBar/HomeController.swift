@@ -706,7 +706,20 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             key! : params
         ]
         root.updateChildValues(feed)
-        print("success logging analytics")
+    }
+    
+    private func orderAnalytics() {
+        let root = Database.database().reference().child("Analytics").child("onlineOrderButtonPressed")
+        let key = root.childByAutoId().key
+        let params : [String : Any] = [
+            "userId" : Auth.auth().currentUser?.uid ?? "newUser",
+            "restaurantId" : Restaurant.shared.restaurantId,
+            "time" : Int(Date().timeIntervalSince1970)
+        ]
+        let feed : [String : Any] = [
+            key! : params
+        ]
+        root.updateChildValues(feed)
     }
     
     private func callUsAction() {
@@ -748,19 +761,24 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @objc func moveToOrder() {
-        let alert = UIAlertController(title: "How would you like to proceed?", message: "", preferredStyle: UIAlertController.Style.actionSheet)
-        alert.addAction(UIAlertAction(title: "Checkout w/ Rewards", style: UIAlertAction.Style.default, handler: { action in
-            let controller = SelectLocationOrder()
-            self.navigationController?.pushViewController(controller, animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Online Order", style: UIAlertAction.Style.default, handler: { action in
-            if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/mHome") {
-                UIApplication.shared.open(url)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        add3DMotion(withFeedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle.medium)
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "How would you like to proceed?", message: "", preferredStyle: UIAlertController.Style.actionSheet)
+//        alert.addAction(UIAlertAction(title: "Checkout w/ Rewards", style: UIAlertAction.Style.default, handler: { action in
+//            let controller = SelectLocationOrder()
+//            self.navigationController?.pushViewController(controller, animated: true)
+//        }))
+//        alert.addAction(UIAlertAction(title: "Online Order", style: UIAlertAction.Style.default, handler: { action in
+//            if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/mHome") {
+//                UIApplication.shared.open(url)
+//            }
+//        }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+//        add3DMotion(withFeedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle.medium)
+//        self.present(alert, animated: true, completion: nil)
+        
+        orderAnalytics()
+        if let url = URL(string: "https://www.customer2you.com/OriginalChickiesBeef.nsf/mHome") {
+            UIApplication.shared.open(url)
+        }
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
