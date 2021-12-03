@@ -255,7 +255,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.updateViewConstraints()
         
         view.addSubview(scrollView)
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 950)
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 1000)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -351,7 +351,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         infoTableView.topAnchor.constraint(equalTo: infoTitle.bottomAnchor, constant: 15).isActive = true
         infoTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
         infoTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
-        infoTableView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        infoTableView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         dishImage.isUserInteractionEnabled = true
@@ -481,6 +481,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             popAboutUsController()
         case "Contact Us":
             openMail()
+        case "Order Now":
+            moveToOrder()
         default:
             print("other")
         }
@@ -558,6 +560,10 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         rateUs.title = "Rate Us"
         rateUs.image = UIImage(systemName: "star.fill")!
         
+        let orderNow = InfoAction()
+        orderNow.title = "Order Now"
+        orderNow.image = UIImage(systemName: "cart.fill")!
+        
         let terms = InfoAction()
         terms.title = "Our Website"
         terms.image = UIImage(systemName: "bookmark.fill")!
@@ -571,6 +577,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         contactUs.image = UIImage(systemName: "envelope.fill")!
         
         infoActions.append(rateUs)
+        infoActions.append(orderNow)
         infoActions.append(terms)
         infoActions.append(aboutUs)
         infoActions.append(contactUs)
