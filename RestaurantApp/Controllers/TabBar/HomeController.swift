@@ -18,6 +18,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // ADD RESTAURANT WEBSITEBELOW TO ADD ACCESS
     let websiteURL = "http://chickiesbeef.com"
     
+    let banquets = HomeAction()
+    
     let callUs = HomeAction()
     
     let locations = HomeAction()
@@ -351,7 +353,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         infoTableView.topAnchor.constraint(equalTo: infoTitle.bottomAnchor, constant: 15).isActive = true
         infoTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
         infoTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
-        infoTableView.heightAnchor.constraint(equalToConstant: 220).isActive = true
+        infoTableView.heightAnchor.constraint(equalToConstant: 230).isActive = true
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         dishImage.isUserInteractionEnabled = true
@@ -413,6 +415,26 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             showMenuItem(menuItem: self.menutItems[indexPath.row])
         } else {
             switch self.actions[indexPath.row].title! {
+            case "Banquets":
+                let alert = UIAlertController(title: "Call to Request", message: "Would you like to call and request Banquets by Chickies?", preferredStyle: UIAlertController.Style.actionSheet)
+                alert.addAction(UIAlertAction(title: "Yes, Call", style: UIAlertAction.Style.default, handler: { action in
+                    if let url = URL(string: "tel://+16304002876") {
+                      UIApplication.shared.open(url)
+                    }
+                }))
+                alert.addAction(UIAlertAction(title: "View Banquet Information", style: UIAlertAction.Style.default, handler: { action in
+                    if let url = URL(string: "https://chickiesbeef.com/wp-content/uploads/2021/08/Banquet-Menu.pdf") {
+                      UIApplication.shared.open(url)
+                    }
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    var popoverCntlr = UIPopoverController(contentViewController: alert)
+                    popoverCntlr.present(from: CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0),  in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+                }
             case "Call Us":
                 callUsAction()
             case "About Us":
@@ -646,6 +668,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     private func setupActions2() {
         self.actions.removeAll()
         
+        banquets.title = "Banquets"
+        banquets.image = UIImage(systemName: "person.2.fill")!
+        
         callUs.title = "Call Us"
         callUs.image = UIImage(systemName: "phone.fill")!
         
@@ -670,6 +695,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     let gallery = HomeAction()
                     gallery.title = "Gallery"
                     gallery.image = UIImage(systemName: "camera.fill")!
+                    self.actions.append(self.banquets)
                     self.actions.append(self.callUs)
                     self.actions.append(self.locations)
                     self.actions.append(self.aboutUs)
@@ -684,6 +710,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         self.actions.append(self.facebook)
                     }
                 } else {
+                    self.actions.append(self.banquets)
                     self.actions.append(self.callUs)
                     self.actions.append(self.locations)
                     self.actions.append(self.aboutUs)
