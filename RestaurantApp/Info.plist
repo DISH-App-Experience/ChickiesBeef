@@ -46,7 +46,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow location permission to access the restaurant locations in relevance to yours!</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Please allow tracking so we can access IDFA</string>
+	<string>Please allow tracking so we analyze our user demographics</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
