@@ -60,6 +60,7 @@
 		78586224266D3AAD00FBC0DE /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78586223266D3AAD00FBC0DE /* SignUpController.swift */; };
 		78586228266D3B8E00FBC0DE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78586227266D3B8E00FBC0DE /* TabBarController.swift */; };
 		7858622A266D425B00FBC0DE /* SignUpInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78586229266D425B00FBC0DE /* SignUpInformationController.swift */; };
+		785FF24627700702005BA07C /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785FF24527700702005BA07C /* EventController.swift */; };
 		78781A9F2672972000878406 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78781A9E2672972000878406 /* ImageGalleryCell.swift */; };
 		78781AA12672979200878406 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78781AA02672979200878406 /* Photo.swift */; };
 		78878E8B26792082000A36B8 /* MenuCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78878E8A26792082000A36B8 /* MenuCategoryCell.swift */; };
@@ -172,6 +173,7 @@
 		78586227266D3B8E00FBC0DE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		78586229266D425B00FBC0DE /* SignUpInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformationController.swift; sourceTree = "<group>"; };
 		7858622B266DF0A000FBC0DE /* RestaurantApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestaurantApp.entitlements; sourceTree = "<group>"; };
+		785FF24527700702005BA07C /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		78781A9E2672972000878406 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
 		78781AA02672979200878406 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		78878E8A26792082000A36B8 /* MenuCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCell.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				7890BDA926D72D52008423AD /* SuccessScreen.swift */,
 				7827495326CC1B0500A1F7DD /* AddItemController.swift */,
 				7827495526CC1C7900A1F7DD /* CustomizeItemOrderController.swift */,
+				785FF24527700702005BA07C /* EventController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				7809887F266F42680094306C /* ProfileInformationController.swift in Sources */,
 				7809887A266F3DFD0094306C /* ProfileController.swift in Sources */,
 				78419354266D0C79001E246E /* SceneDelegate.swift in Sources */,
+				785FF24627700702005BA07C /* EventController.swift in Sources */,
 				78B6DA1E26C1621D00C1B3D6 /* NoConnection.swift in Sources */,
 				7827494C26CC0F3D00A1F7DD /* OrderController.swift in Sources */,
 				78419384266D0E87001E246E /* LoadingController.swift in Sources */,
@@ -969,7 +973,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RestaurantApp/RestaurantApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZH735L9VC9;
 				INFOPLIST_FILE = RestaurantApp/Info.plist;
@@ -978,7 +982,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.021;
+				MARKETING_VERSION = 1.024;
 				PRODUCT_BUNDLE_IDENTIFIER = "Jorge-Zapata.ChickiesBeef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -994,7 +998,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RestaurantApp/RestaurantApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = ZH735L9VC9;
 				INFOPLIST_FILE = RestaurantApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1002,7 +1006,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.021;
+				MARKETING_VERSION = 1.024;
 				PRODUCT_BUNDLE_IDENTIFIER = "Jorge-Zapata.ChickiesBeef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
